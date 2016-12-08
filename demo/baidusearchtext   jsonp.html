@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src=" http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<input type="text" id='keyWords'/>
+<div>
+    <ul></ul>
+</div>
+<script type="text/javascript">
+    $(function () {  
+        $('#keyWords').keyup ( function (e) {
+            $.ajax({
+                dataType : 'jsonp',
+                url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+$('#keyWords').val(),
+                jsonp:'cb',
+                success: function (data) {
+                    $('ul')[0].innerHTML='';
+                    console.log(data.s) ;
+                    for (var i = 0; i <data.s.length; i++) {
+                        console.log(data.s[i]);
+                        var node=document.createElement("LI");
+                        var textnode=document.createTextNode(data.s[i]);
+                        node.appendChild(textnode);
+                        $('ul')[0].appendChild(node);
+                         $('li').click(function (e) {
+//                             console.log(e) ;
+                             $('#keyWords').val(e.target.innerHTML)
+                         }) ;
+
+
+//                         $('#list').show();
+//                        var ul = $('<ul></ul>');
+//                        $.each(data.s, function (i,element) {
+//                            var  e = $('<li></li>').append();
+//                            $(ul).append(e);
+//                        })
+//                        $('list').append().show()   ;
+                    }
+                }
+            })
+        }) ;
+
+
+
+
+    })
+
+</script>
+</body>
+</html>

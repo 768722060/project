@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function dg(n) {
+        if (n == 1) {
+            return 1 ;
+        }else if (n == 2){
+            return 1 ;
+        }else {
+            return dg(n-1)+ dg(n-2)
+        }
+    }
+    console.log(dg(41))
+</script>
+</body>
+</html>

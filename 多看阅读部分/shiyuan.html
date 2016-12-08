@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div a{
+            /*background-color: #080808;*/
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<a href="" target="_blank" onmouseover="bk()" onmouseout="bkxss()" >爆款</a>
+<div class="nsb_text" id="bkxs" style="display:none">
+    <p><a href="" target="_blank">小新Air&nbsp;12</a></p>
+    <p><a href="" target="_blank">小新Air13 Pro</a></p>
+    <p><a href="" target="_blank">小新310</a></p>
+    <p><a href="" target="_blank">拯救者游戏本</a></p>
+    <p><a href="" target="_blank">ThinkPad &nbsp; New &nbsp; S2</a></p>
+    <p><a href="" target="_blank">小新700</a></p>
+    <p><a href="" target="_blank">平板MIIX4</a></p>   </div>
+</body>
+</html>
+<script>
+    var bkxs = document.getElementById('bkxs') ;
+    function bk() {
+        bkxs.style.display="block";
+    };
+    function bkxss() {
+        bkxs.style.display ="none"
+    } ;
+</script>

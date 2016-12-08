@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        function ajaz(data){
+            var xhr = null;
+            xhr = new XMLHttpRequest();
+
+            var type = data.type == 'get' ? 'get' : 'post';
+            var flag = data.asyn == 'true' ? 'true' : 'false';
+            var url = data.url;
+            xhr.open(type, url, flag);
+
+            if(type == 'get'){
+                xhr.send(null);
+            }else if(type == 'post'){
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send(data.data);
+            }
+
+            xhr.onreadystatechange = function (){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        if(typeof data.success == 'function'){
+                            var d = data.dataType == 'xml' ? xhr.responseXML : xhr.responseText;
+                            data.success(d);
+
+                        }
+
+                    }else{
+                        data.error();
+                    }
+                }
+            }
+        }
+        var param = {
+            success:function (data){
+                console.log(data);
+
+                // 首先要对数据进行拆包
+                // 要与后台人员协商好,要有模拟数据拆包
+            }
+        }
+
+        ajaz()
+    </script>
+</body>
+</html>

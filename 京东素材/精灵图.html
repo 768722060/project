@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /*去除列表的默认样式*/
+            list-style: none;
+        }
+        /*相当于内墙法,*/
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1; /*IE/7/6*/
+        }
+
+        .box {
+            /*这句话设置居中盒子必须有明确的宽度*/
+            margin: 100px auto;
+            width: 244px;
+            /*border: 1px solid grey;*/
+
+
+        }
+        li {
+            border: 1px solid grey;
+            /*border-width: 1px 0 0 1px;*/
+            float: left;
+            margin-left: -1px;
+            margin-top: -1px;
+        }
+        li a {
+            display: block;
+            width: 60px;
+            height: 70px;
+        }
+        li .tupian {
+            height: 48px;
+            width: 48px;
+            margin: 1px auto 0;
+            background: url("images/taobao.png") no-repeat 0 0;
+            transform: scale(0.5);
+        }
+        li .title {
+            height: 20px;
+
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="clearfix box">
+    <ul>
+        <!--home   end-->
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+        <li><a href="#"><div class="tupian"></div><div class="title">话费</div></a></li>
+    </ul>
+</div>
+
+
+</body>
+</html>

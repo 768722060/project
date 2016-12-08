@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // js是一门解释型语言
+    // 代码运行分为两个阶段 1. 预解析---把所有变量的声明提前, 函数的定义也提前  2.执行(从上而下)
+
+    // 函数的调用时可以写在声明的前面的
+
+    // header var a;    function fn1(){                  var fn2;
+    //                      console.log('1');
+    //                  }
+    fn1();
+    //fn2(); 此时fn2还不知道是一个函数,所以不能运行
+    function fn1(){
+        console.log('1');
+    }
+
+    var fn2 = function () {
+        console.log('2');
+    }
+
+    // 函数传参  参数中分为两种 形参 和 实参  形参与实参存在的是值的复制过程
+    var a = 0;
+
+    function fn3(a){
+        a++;
+        console.log(a);
+    }
+    fn3(a);
+    console.log(a);
+
+    // 作用域: js作用域分为 函数内的 和全局
+    // 如果n是全局变量, 那么64到67 输出为2 3 4 5
+    //var n = 1;
+    function fn4(){
+        //当n 有被外部的实例 引用, 那么就会形成闭包区域, 一旦形成的闭包区域, 就会保存变量的值
+        var n = 1;
+        // this.fn = function(){n++; console.log(n);};
+        var fn = function () {
+            n++;
+            console.log(n);
+        };
+        return fn;
+    }
+    var obj = new Object();
+/*
+    var fn6 = new fn4();
+    fn6.fn();
+    fn6.fn();
+    fn6.fn();
+    fn6.fn();
+    */
+    fn4()(); // 2
+    fn4()(); // 2
+    fn4()(); // 2
+    fn4()(); // 2
+
+    var fn5 = fn4();
+    fn5(); // fn4()(); 2
+    fn5(); // 3
+    fn5(); // 4
+    fn5(); // 5
+
+
+    var data = [];
+    for(var i = 0; i < 3; i++){
+        data[i] = function(){
+            console.log(i);
+        }
+    }
+
+    /*
+    var i = 3;
+    data[0] = function(){
+        console.log(i);
+    }
+    */
+    data[0](); // 3
+    data[1](); // 3
+    data[2](); // 3
+
+
+    for(i = 0; i < 3; i++){
+        // k 对下面括号中的i 是属于值的复制过程
+        // 把函数写在一个括号里面, 会让函数立即执行;
+        // 下面的函数执行, 仅仅只是返回了一个函数
+        // 如果以后读的代码里 有返回函数, 那么一定会有闭包区域
+        /*
+        data[i] = function(){
+            console.log(i);
+        }*/
+
+        data[i] = (function(k){
+
+            return function(){
+                console.log(k);
+            }
+        })(i)
+    }
+
+    data[0](); // 0
+    data[1](); // 1
+    data[2](); // 2
+
+    //console.log(n);
+
+    // 函数立即执行
+    (function fn6(){
+        alert('1');
+    })()
+
+</script>
+</body>
+</html>

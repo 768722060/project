@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8] ;
+
+    var low = 0,high = arr.length - 1,   isGet = false ;
+
+    while(low <= high && isGet == false)  {
+
+        var mid = parseInt((low+high)/2);
+        if (arr[mid] == 5) {
+            console.log("找到了,下标是:"+ mid );
+            isGet = true ;
+            break;
+        }else if (arr[mid] < 5) {
+            low = mid + 1
+        }else {
+            high = mid - 1
+        }
+    }
+    if (isGet == false) {
+        console.log("没有");
+    }
+
+//    function dd() {
+//        if (low<=high) {
+//            var mid = parseInt((low+high)/2);
+//            if (arr[mid]==5) {
+//                console.log("找到了,下标是:"+ mid );
+//                 return ;
+//            }else if (arr[mid]<5) {
+//                low=mid+1
+//            }else {
+//                high=mid-1
+//            }
+//        }
+//        dd()
+//    }
+//    dd()
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="showInfo"></div>
+    <script>
+        // ajax全称  Asynchronous Javascript And XML
+
+        $.ajax({
+            url:'02data.php',// 请求的url地址
+            dataType:'json', // 返回数据的格式
+            async:true, // 是否异步
+            //data:{'key':'value'}, // 参数值 如果type为get那么会自动拼接到url后面
+            type:'GET', // 请求方式
+            beforeSend: function(){// 请求前的处理
+
+            },
+            success: function(d){ //请求成功的处理
+                // 运行script代码, script的类型为string
+                eval(d);
+                // 在控制台打印返回的数据
+                console.log(d);
+                // 当datatype为html的时候, 把html代码添加到id为showinfo的标签中
+                $('#showInfo').html(d);
+            },
+            complete: function () {// 请求完成的处理
+
+            },
+            error: function () { // 请求失败的处理
+                alert('错了');
+            }
+
+        });
+    </script>
+</body>
+</html>
